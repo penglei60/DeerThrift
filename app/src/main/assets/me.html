@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <link href="css/style2.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="js/sweetalert/sweetalert.min.js"></script>
+</head>
+
+<body style="display: none;">
+
+    <section class="jq22-flexView">
+        <header class="jq22-navBar jq22-navBar-fixed">
+            <a href="javascript:;" class="jq22-navBar-item">
+                <i class="icon "></i>
+            </a>
+            <div class="jq22-center">
+                <span class="jq22-center-title">我的个人中心</span>
+            </div>
+            <a href="javascript:;" class="jq22-navBar-item">
+                <i class="icon icon-sys"></i>
+            </a>
+        </header>
+        <section class="jq22-scrollView">
+            <div class="jq22-mine-box">
+                <div class="jq22-flex jq22-flexbg">
+                    <div class="jq22-user-img">
+                        <img src="images/tx.png" alt="">
+                    </div>
+                    <div class="jq22-flex-box">
+                        <h2>游客</h2>
+                    </div>
+                    <div class="jq22-arrow">
+                        <span>个人主页</span>
+                    </div>
+                </div>
+                <div class="jq22-flex jq22-flex-one">
+                    <div class="jq22-flex-box" onclick="window.open('qd.html','_self')">
+                        <div class="jq22-mine-cell">
+                            <h2>每日签到</h2>
+                            <p>签到做任务轻松赢获积分</p>
+                        </div>
+                    </div>
+                    <div class="jq22-flex-box">
+                        <div class="jq22-mine-cell jq22-mine-cell-one">
+                            <h2>邀请好友</h2>
+                            <p>邀请好友赢20元现金</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="divHeight"></div>
+                <div class="jq22-mine-list">
+                    <a href="javascript:;" class="jq22-flex ">
+                        <div class="jq22-cou-img">
+                            <img src="images/icon-item-001.png" alt="">
+                        </div>
+                        <div class="jq22-flex-box">
+                            <p>我的任务</p>
+                        </div>
+                        <div class="jq22-arrow">
+                            <span></span>
+                        </div>
+                    </a>
+                    <div class="divHeight"></div>
+                    <a href="javascript:;" class="jq22-flex b-line">
+                        <div class="jq22-cou-img">
+                            <img src="images/icon-item-002.png" alt="">
+                        </div>
+                        <div class="jq22-flex-box">
+                            <p>我的金币</p>
+                        </div>
+                        <div class="jq22-arrow">
+                            <span id="cash">***</span><span>金币</span>
+                        </div>
+                    </a>
+                    <a href="javascript:;" class="jq22-flex b-line">
+                        <div class="jq22-cou-img">
+                            <img src="images/icon-item-003.png" alt="">
+                        </div>
+                        <div class="jq22-flex-box">
+                            <p>我的消息</p>
+                        </div>
+                        <div class="jq22-arrow">
+                            <span></span>
+                        </div>
+                    </a>
+                    <a href="javascript:;" class="jq22-flex b-line">
+                        <div class="jq22-cou-img">
+                            <img src="images/icon-item-004.png" alt="">
+                        </div>
+                        <div class="jq22-flex-box">
+                            <p>浏览历史</p>
+                        </div>
+                        <div class="jq22-arrow">
+                            <span></span>
+                        </div>
+                    </a>
+                    <a href="javascript:;" class="jq22-flex b-line">
+                        <div class="jq22-cou-img">
+                            <img src="images/icon-item-005.png" alt="">
+                        </div>
+                        <div class="jq22-flex-box">
+                            <p>我的关注</p>
+                        </div>
+                        <div class="jq22-arrow">
+                            <span></span>
+                        </div>
+                    </a>
+                    <div class="divHeight"></div>
+                    <a href="javascript:;" class="jq22-flex b-line">
+                        <div class="jq22-cou-img">
+                            <img src="images/icon-item-006.png" alt="">
+                        </div>
+                        <div class="jq22-flex-box">
+                            <p>意见反馈</p>
+                        </div>
+                        <div class="jq22-arrow">
+                            <span></span>
+                        </div>
+                    </a>
+                    <a href="javascript:;" class="jq22-flex b-line">
+                        <div class="jq22-cou-img">
+                            <img src="images/icon-item-008.png" alt="">
+                        </div>
+                        <div class="jq22-flex-box">
+                            <p>用户设置</p>
+                        </div>
+                        <div class="jq22-arrow">
+                            <span></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <footer class="jq22-footer jq22-footer-fixed">
+            <a href="zx.html" class="jq22-tabBar-item ">
+                <span class="jq22-tabBar-item-icon">
+                    <i class="icon icon-loan"></i>
+                </span>
+                <span class="jq22-tabBar-item-text">首页</span>
+            </a>
+            <a href="qd.html" class="jq22-tabBar-item ">
+                <span class="jq22-tabBar-item-icon">
+                    <i class="icon icon-credit"></i>
+                </span>
+                <span class="jq22-tabBar-item-text">签到</span>
+            </a>
+            <a href="javascript:;" class="jq22-tabBar-item " id="zq">
+                <span class="jq22-tabBar-item-icon">
+                    <i class="icon icon-ions"></i>
+                </span>
+                <span class="jq22-tabBar-item-text">赚钱</span>
+            </a>
+            <a href="me.html" class="jq22-tabBar-item jq22-tabBar-item-active">
+                <span class="jq22-tabBar-item-icon">
+                    <i class="icon icon-car"></i>
+                </span>
+                <span class="jq22-tabBar-item-text">我的</span>
+            </a>
+        </footer>
+    </section>
+</body>
+<script>
+    var cash = localStorage.getItem("cash");
+    if (cash && cash != "undefined") {
+        $("#cash").html(cash);
+    } else {
+        $("#cash").html(0);
+    }
+    $("#zq").click(function () {
+        swal("正在维护...")
+    })
+    $("body").show();
+</script>
+
+</html>

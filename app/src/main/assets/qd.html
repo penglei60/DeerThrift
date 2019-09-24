@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>签到</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <link href="css/style2.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="js/sweetalert/sweetalert.min.js"></script>
+    <style>
+        .ui-navigator {
+            width: 100%;
+            border-top: 1px solid #2468c9;
+            border-bottom: 1px solid #0145a5;
+            background: #2773dc
+        }
+
+        .ui-navigator .ui-navigator-list li a,
+        .ui-navigator .ui-navigator-fix {
+            padding: .6em 15px;
+            font-size: 16px;
+            color: #fff;
+            text-decoration: none;
+            outline: 0;
+            /* font-family: 寰蒋闆呴粦 榛戜綋; */
+            font-weight: 700;
+            text-align: center
+        }
+
+        @media all and (min-device-width:768px) and (max-device-width:1024px) {
+
+            .ui-navigator .ui-navigator-list li a,
+            .ui-navigator .ui-navigator-fix {
+                font-size: 18px
+            }
+        }
+
+        .ui-navigator .ui-navigator-list li a.cur,
+        .ui-navigator .ui-navigator-fix.cur {
+            background: #0c4da8
+        }
+
+        .ui-navigator {
+            display: -webkit-box;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        .ui-navigator .ui-navigator-list,
+        .ui-navigator .ui-navigator-fix {
+            display: -webkit-box;
+            -webkit-box-flex: 1
+        }
+
+        .ui-navigator .ui-navigator-list li {
+            -webkit-box-flex: 1
+        }
+
+        .ui-navigator .ui-navigator-list li a,
+        .ui-navigator .ui-navigator-fix {
+            display: -webkit-box;
+            -webkit-box-sizing: border-box;
+            -webkit-box-align: center;
+            -webkit-box-pack: center
+        }
+
+        #nav-smartSetup {
+            overflow: scroll;
+        }
+
+        .ui-navigator-list li:first-child {
+            margin-left: 20px;
+        }
+
+        .qd {
+            background: #2773dc;
+            box-shadow: 0 3px 0 0 #2468c9;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -100px;
+            margin-left: -100px;
+            width: 200px;
+            height: 200px;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 200px;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="nav-smartSetup" class="ui-navigator">
+        <div class="ui-navigator-wrapper ui-navigator-shadowall" data--iscroll-="iscroll0" style="overflow: hidden;">
+            <ul class="ui-navigator-list"
+                style="width: 924px; transition-property: -webkit-transform; transform-origin: 0px 0px 0px; transform: translate(-18px, 0px) scale(1) translateZ(0px);">
+                <li><a href="zx.html">要闻</a></li>
+                <li><a href="zx.html">国内</a></li>
+                <li><a href="zx.html">国际</a></li>
+                <li><a href="zx.html">军事</a></li>
+                <li><a href="zx.html">社会</a></li>
+                <li><a href="zx.html">娱乐</a></li>
+                <li><a href="zx.html">体育</a></li>
+                <li><a href="zx.html">汽车</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="conetent">
+
+        <div class="qd">
+            立即签到
+        </div>
+
+    </div>
+    <footer class="jq22-footer jq22-footer-fixed">
+        <a href="zx.html" class="jq22-tabBar-item ">
+            <span class="jq22-tabBar-item-icon">
+                <i class="icon icon-loan"></i>
+            </span>
+            <span class="jq22-tabBar-item-text">首页</span>
+        </a>
+        <a href="qd.html" class="jq22-tabBar-item jq22-tabBar-item-active">
+            <span class="jq22-tabBar-item-icon">
+                <i class="icon icon-credit"></i>
+            </span>
+            <span class="jq22-tabBar-item-text">签到</span>
+        </a>
+        <a href="javascript:;" class="jq22-tabBar-item" id="zq">
+            <span class="jq22-tabBar-item-icon">
+                <i class="icon icon-ions"></i>
+            </span>
+            <span class="jq22-tabBar-item-text">赚钱</span>
+        </a>
+        <a href="me.html" class="jq22-tabBar-item">
+            <span class="jq22-tabBar-item-icon">
+                <i class="icon icon-car"></i>
+            </span>
+            <span class="jq22-tabBar-item-text">我的</span>
+        </a>
+    </footer>
+    </section>
+</body>
+<script>
+    $(".qd").click(function () {
+        var cash = parseInt(localStorage.getItem("cash"));
+        var checkIn = localStorage.getItem("checkIn");
+        if (cash && cash != "undefined") {
+            cash = cash;
+        } else {
+            cash = 0;
+        }
+        var toDay = Date.parse(new Date()) / 1000;
+        toDay = String(timestampToTime(toDay));
+        if (checkIn != toDay) {
+            localStorage.setItem("cash", parseInt(cash) + 10);
+            localStorage.setItem("checkIn", toDay);
+            swal("签到成功 金币+" + 10)
+        } else {
+            swal("今天已签到!")
+        }
+    })
+    $("#zq").click(function () {
+        swal("正在维护...")
+    })
+
+    // 时间戳
+    function timestampToTime(timestamp, all) {
+        var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+        var Y = date.getFullYear() + '-';
+        var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+        var D = (date.getDate() + 1 < 10 ? '0' + (date.getDate() + ' ') : date.getDate() + ' ');
+        var h = date.getHours() + ':';
+        var m = date.getMinutes() + ':';
+        var s = date.getSeconds();
+        if (all) {
+            return Y + M + D + h + m + s;
+        } else {
+            return Y + M + D//+h+m+s;
+        }
+    }
+</script>
+
+</html>

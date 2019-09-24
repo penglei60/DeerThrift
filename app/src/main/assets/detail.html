@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/time.css" />
+    <link href="css/style2.css" rel="stylesheet" type="text/css" />
+    <script src="js/time_js.js"></script>
+    <script src="js/base.js"></script>
+    <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="js/sweetalert/sweetalert.min.js"></script>
+    <title>详情页</title>
+</head>
+<style>
+    .ui-navigator {
+        width: 100%;
+        border-top: 1px solid #2468c9;
+        border-bottom: 1px solid #0145a5;
+        background: #2773dc
+    }
+
+    .ui-navigator .ui-navigator-list li a,
+    .ui-navigator .ui-navigator-fix {
+        padding: .6em 15px;
+        font-size: 16px;
+        color: #fff;
+        text-decoration: none;
+        outline: 0;
+        /* font-family: 寰蒋闆呴粦 榛戜綋; */
+        font-weight: 700;
+        text-align: center
+    }
+
+    @media all and (min-device-width:768px) and (max-device-width:1024px) {
+
+        .ui-navigator .ui-navigator-list li a,
+        .ui-navigator .ui-navigator-fix {
+            font-size: 18px
+        }
+    }
+
+    .ui-navigator .ui-navigator-list li a.cur,
+    .ui-navigator .ui-navigator-fix.cur {
+        background: #0c4da8
+    }
+
+    .ui-navigator {
+        display: -webkit-box;
+        -webkit-tap-highlight-color: transparent
+    }
+
+    .ui-navigator .ui-navigator-list,
+    .ui-navigator .ui-navigator-fix {
+        display: -webkit-box;
+        -webkit-box-flex: 1
+    }
+
+    .ui-navigator .ui-navigator-list li {
+        -webkit-box-flex: 1
+    }
+
+    .ui-navigator .ui-navigator-list li a,
+    .ui-navigator .ui-navigator-fix {
+        display: -webkit-box;
+        -webkit-box-sizing: border-box;
+        -webkit-box-align: center;
+        -webkit-box-pack: center
+    }
+
+    #nav-smartSetup {
+        overflow: scroll;
+    }
+
+    .ui-navigator-list li:first-child {
+        margin-left: 15px;
+    }
+
+    #time {
+        position: fixed;
+        transform: scale(0.2);
+        top: 100px;
+        right: 50px;
+        font-size: 45px;
+    }
+
+    #time .jb {
+        width: 200px;
+        color: #fff;
+        z-index: 9999999;
+        margin-top: 70px;
+        margin-left: 25px;
+        position: absolute;
+        display: none;
+    }
+</style>
+
+<body style="display: none;">
+    <div id="time">
+        <div class="jb">
+            金币+10
+        </div>
+        <div class="game_center">
+            <div class="game_time">
+                <div class="hold">
+                    <div class="pie pie1"></div>
+                </div>
+                <div class="hold">
+                    <div class="pie pie2"></div>
+                </div>
+                <div class="bg"> </div>
+                <div class="time"></div>
+            </div>
+        </div>
+    </div>
+    <div id="nav-smartSetup" class="ui-navigator">
+        <div class="ui-navigator-wrapper ui-navigator-shadowall" data--iscroll-="iscroll0" style="overflow: hidden;">
+            <ul class="ui-navigator-list"
+                style="width: 924px; transition-property: -webkit-transform; transform-origin: 0px 0px 0px; transform: translate(-18px, 0px) scale(1) translateZ(0px);">
+                <li><a href="zx.html">要闻</a></li>
+                <li><a href="zx.html">国内</a></li>
+                <li><a href="zx.html">国际</a></li>
+                <li><a href="zx.html">军事</a></li>
+                <li><a href="zx.html">社会</a></li>
+                <li><a href="zx.html">娱乐</a></li>
+                <li><a href="zx.html">体育</a></li>
+                <li><a href="zx.html">汽车</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="content"></div>
+    <footer class="jq22-footer jq22-footer-fixed">
+        <a href="zx.html" class="jq22-tabBar-item jq22-tabBar-item-active">
+            <span class="jq22-tabBar-item-icon">
+                <i class="icon icon-loan"></i>
+            </span>
+            <span class="jq22-tabBar-item-text">首页</span>
+        </a>
+        <a href="qd.html" class="jq22-tabBar-item">
+            <span class="jq22-tabBar-item-icon">
+                <i class="icon icon-credit"></i>
+            </span>
+            <span class="jq22-tabBar-item-text">签到</span>
+        </a>
+        <a href="javascript:;" class="jq22-tabBar-item " id="zq">
+            <span class="jq22-tabBar-item-icon">
+                <i class="icon icon-ions"></i>
+            </span>
+            <span class="jq22-tabBar-item-text">赚钱</span>
+        </a>
+        <a href="me.html" class="jq22-tabBar-item">
+            <span class="jq22-tabBar-item-icon">
+                <i class="icon icon-car"></i>
+            </span>
+            <span class="jq22-tabBar-item-text">我的</span>
+        </a>
+    </footer>
+</body>
+<script>
+    countDown();
+    $("#zq").click(function () {
+        swal("正在维护...")
+    })
+
+    var id = getParam("id");
+    function getParam(paramName) {
+        paramValue = "", isFound = !1; if (this.location.search.indexOf("?") == 0 && this.location.search.indexOf("=") > 1) { arrSource = unescape(this.location.search).substring(1, this.location.search.length).split("&"), i = 0; while (i < arrSource.length && !isFound) arrSource[i].indexOf("=") > 0 && arrSource[i].split("=")[0].toLowerCase() == paramName.toLowerCase() && (paramValue = arrSource[i].split("=")[1], isFound = !0), i++ } return paramValue == "" && (paramValue = null), paramValue
+    }
+    $.ajax({
+        url: `data/${id}.json`,
+        type: "get",
+        data: "jsonp",
+        success: function (data) {
+            var allData = JSON.parse(data)
+            console.log(JSON.parse(data))
+            $(".content").html(allData.body)
+            $(".img-place-holder").html(`<img src='${allData.image} '/>`)
+            for (var i = 0; i < allData.css.length; i++) {
+                $("body").append(`<link href="${allData.css[i]}" rel="stylesheet" type="text/css" />`)
+            }
+            $("img").on("error", function () {
+                $(this).attr("src", "images/timg.jpg");
+            });
+
+        }
+    })
+
+
+</script>
+
+</html>

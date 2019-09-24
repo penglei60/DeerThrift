@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">小鹿省钱</string>
+
+
+
+    <!-- 网络连接-->
+    <string name="network_fial_message">当前网络不可用，请检查您的网络设置</string>
+
+    <string name="s_btn_exit">再按一次退出</string>
+</resources>
